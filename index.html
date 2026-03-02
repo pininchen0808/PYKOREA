@@ -1,314 +1,195 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seoul Trip</title>
-
 <style>
-:root{
-  --bg:#f6f7f9;
-  --card:#ffffff;
-  --text:#222;
-  --muted:#777;
-  --accent:#111;
-  --radius:16px;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-}
-
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:40px 20px 80px;
-}
-
-header{
-  text-align:center;
+.day-group{
   margin-bottom:40px;
-}
-
-h1{
-  font-weight:300;
-  letter-spacing:3px;
-  font-size:28px;
-}
-
-.sub{
-  color:var(--muted);
-  margin-top:10px;
-  font-size:14px;
-}
-
-.info{
-  background:var(--card);
   padding:20px;
-  border-radius:var(--radius);
-  margin-bottom:40px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-}
-
-.info div span{
-  display:block;
-  font-size:12px;
-  color:var(--muted);
-  margin-bottom:6px;
-}
-
-.switch{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.switch button{
-  padding:10px 20px;
-  margin:5px;
-  border:none;
-  background:#eaecef;
-  border-radius:30px;
-  cursor:pointer;
-  font-size:14px;
-}
-
-.switch button.active{
-  background:var(--accent);
+  background:#111;
+  border-radius:16px;
   color:#fff;
 }
-
-.grid-overview{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.day-card{
-  background:var(--card);
-  padding:20px;
-  border-radius:var(--radius);
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-}
-
-.day-card h3{
+.day-group h2{
   margin-bottom:15px;
-  font-weight:500;
+  font-size:20px;
+  border-bottom:1px solid #333;
+  padding-bottom:10px;
 }
-
-.day-card ul{
-  list-style:none;
+.item{
+  margin-bottom:18px;
 }
-
-.day-card li{
-  margin-bottom:6px;
-  font-size:14px;
-  color:#444;
-}
-
-.detail{
-  display:none;
-}
-
-.timeline{
-  border-left:2px solid #ddd;
-  padding-left:20px;
-}
-
-.timeline-item{
-  margin-bottom:25px;
-  position:relative;
-}
-
-.timeline-item::before{
-  content:'';
-  position:absolute;
-  left:-10px;
-  top:5px;
-  width:10px;
-  height:10px;
-  background:#111;
-  border-radius:50%;
-}
-
-.place{
-  font-weight:500;
-  margin-bottom:6px;
-}
-
-.tag{
-  font-size:12px;
-  color:var(--muted);
+.item-tag{
+  font-weight:bold;
+  color:#aaa;
   margin-bottom:4px;
 }
-
-.map-btn{
-  display:inline-block;
-  margin-top:8px;
-  font-size:12px;
-  padding:5px 10px;
-  background:#111;
-  color:#fff;
-  border-radius:20px;
+.item-text{
+  font-size:15px;
+}
+.item a{
+  color:#4da6ff;
   text-decoration:none;
+  word-break:break-all;
 }
-
-footer{
-  margin-top:60px;
-  font-size:14px;
-  color:var(--muted);
-}
-
-@media(max-width:600px){
-  .info{grid-template-columns:1fr;}
+.item a:hover{
+  text-decoration:underline;
 }
 </style>
-</head>
 
-<body>
-<div class="container">
 
-<header>
-  <h1>五天四夜首爾旅遊</h1>
-  <div class="sub">2025/3/12 - 3/16</div>
-</header>
+<div class="day-group">
+  <h2>Day 1 (3/12 四)</h2>
 
-<div class="info">
-  <div>
-    <span>航班</span>
-    LJ736 11:00-14:40<br>
-    LJ737 15:20-17:30
-  </div>
-  <div>
-    <span>住宿</span>
-    弘大站<br>
-    대한민국 서울시 마포구 와우산로 37길 38, 301호
-  </div>
-</div>
-
-<div class="switch">
-  <button class="active" onclick="showOverview()">總覽</button>
-  <button onclick="showDetail()">每日詳細</button>
-</div>
-
-<!-- 總覽 -->
-<div id="overview" class="grid-overview">
-
-  <div class="day-card">
-    <h3>Day 1</h3>
-    <ul>
-      <li>AREX & Check-in</li>
-      <li>弘大逛街</li>
-      <li>小豬存錢筒</li>
-      <li>Puradak Chicken</li>
-    </ul>
+  <div class="item">
+    <div class="item-tag">下午</div>
+    <div class="item-text">AREX & Check-in</div>
   </div>
 
-  <div class="day-card">
-    <h3>Day 2</h3>
-    <ul>
-      <li>景福宮 + STAR韓服</li>
-      <li>廣藏市場</li>
-      <li>明洞一隻雞</li>
-      <li>漢南洞 / 梨泰院</li>
-      <li>Fountain</li>
-      <li>馬鈴薯豬骨湯</li>
-    </ul>
+  <div class="item">
+    <div class="item-tag">晚上</div>
+    <div class="item-text">弘大逛街</div>
   </div>
 
-  <div class="day-card">
-    <h3>Day 3</h3>
-    <ul>
-      <li>阿峴洞醬油蟹</li>
-      <li>明洞</li>
-      <li>荒謬的生肉 / 烤鰻魚</li>
-    </ul>
-  </div>
-
-  <div class="day-card">
-    <h3>Day 4</h3>
-    <ul>
-      <li>Dr.Evers 醫美</li>
-      <li>聖水洞</li>
-      <li>烤黨 / 排骨湯</li>
-    </ul>
-  </div>
-
-  <div class="day-card">
-    <h3>Day 5</h3>
-    <ul>
-      <li>EGG DROP / ISAAC</li>
-      <li>OLIVE YOUNG</li>
-      <li>仁川機場</li>
-    </ul>
-  </div>
-
-</div>
-
-<!-- 詳細 -->
-<div id="detail" class="detail">
-
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="tag">Day 1</div>
-      <div class="place">AREX & Check-in</div>
-      <a class="map-btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=AREX 홍대입구">Google Map</a>
-    </div>
-
-    <div class="timeline-item">
-      <div class="tag">Day 2</div>
-      <div class="place">景福宮 / STAR韓服</div>
-      <a class="map-btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=경복궁">Google Map</a>
-    </div>
-
-    <div class="timeline-item">
-      <div class="tag">Day 3</div>
-      <div class="place">阿峴洞醬油蟹</div>
-      <a class="map-btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=아현동간장게장">Google Map</a>
-    </div>
-
-    <div class="timeline-item">
-      <div class="tag">Day 4</div>
-      <div class="place">Dr.Evers 弘大門市</div>
-      <a class="map-btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=닥터에버스 홍대점">Google Map</a>
-    </div>
-
-    <div class="timeline-item">
-      <div class="tag">Day 5</div>
-      <div class="place">仁川國際機場</div>
-      <a class="map-btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=인천국제공항">Google Map</a>
+  <div class="item">
+    <div class="item-tag">晚餐</div>
+    <div class="item-text">
+      小豬存錢筒 수정옥돌생소금구이 ，餐廳介紹：
+      <a href="https://bobbyfun.tw/2023-05-18-2422/" target="_blank">
+        https://bobbyfun.tw/2023-05-18-2422/
+      </a>
     </div>
   </div>
 
+  <div class="item">
+    <div class="item-tag">宵夜</div>
+    <div class="item-text">Puradak Chicken푸라닭 홍대점</div>
+  </div>
 </div>
 
-<footer>
-備：樂天超市 / 益善洞韓屋村 / 汝矣島漢江公園
-</footer>
 
+<div class="day-group">
+  <h2>Day 2 (3/13 五)</h2>
+
+  <div class="item">
+    <div class="item-tag">早上</div>
+    <div class="item-text">
+      11:30 景福宮(3號線景福宮站)、STAR韓服
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">午餐 & 下午</div>
+    <div class="item-text">
+      廣藏市場逛逛 + 小吃東西 (1號線鍾路5街站)
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">午晚餐</div>
+    <div class="item-text">
+      明洞一隻雞 總店 명동닭한마리 본점 (鍾路五街站6號出口)，餐廳介紹：
+      <a href="https://bobbyfun.tw/myeongdong-dakhanmari/" target="_blank">
+        https://bobbyfun.tw/myeongdong-dakhanmari/
+      </a>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">晚上</div>
+    <div class="item-text">
+      漢南洞、黎泰院 (黎泰院站棕線)
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">酒吧</div>
+    <div class="item-text">
+      首站 Fountain파운틴
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">宵夜</div>
+    <div class="item-text">
+      馬鈴薯豬骨湯한남동감자탕 본점 (24小時)，餐廳介紹：
+      <a href="https://www.threads.com/@hellochuichi/post/DHvoSbnBLwz?xmt=AQF0wkykR1o1B6R66zibE6rIa1bte18KrHLf_JtCf6vaOg" target="_blank">
+        Threads 介紹連結
+      </a>
+    </div>
+  </div>
 </div>
 
-<script>
-function showOverview(){
-  document.getElementById('overview').style.display='grid';
-  document.getElementById('detail').style.display='none';
-  document.querySelectorAll('.switch button')[0].classList.add('active');
-  document.querySelectorAll('.switch button')[1].classList.remove('active');
-}
 
-function showDetail(){
-  document.getElementById('overview').style.display='none';
-  document.getElementById('detail').style.display='block';
-  document.querySelectorAll('.switch button')[1].classList.add('active');
-  document.querySelectorAll('.switch button')[0].classList.remove('active');
-}
-</script>
+<div class="day-group">
+  <h2>Day 3 (3/14 六)</h2>
 
-</body>
-</html>
+  <div class="item">
+    <div class="item-tag">午餐</div>
+    <div class="item-text">
+      阿峴洞醬油蟹아현동간장게장 (2號線阿峴站3號出口)
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">下午</div>
+    <div class="item-text">
+      明洞逛街 (2號線乙支路入口、4號線明洞站)
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">晚餐</div>
+    <div class="item-text">
+      荒謬的生肉홍대엉터리생고기、烤鰻魚 (一片鰻魚、風川鰻魚)
+    </div>
+  </div>
+</div>
+
+
+<div class="day-group">
+  <h2>Day 4 (3/15 日)</h2>
+
+  <div class="item">
+    <div class="item-tag">早上</div>
+    <div class="item-text">
+      醫美 Dr.Evers 弘大門市 닥터에버스 홍대점 10:00
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">下午</div>
+    <div class="item-text">
+      聖水洞 (2號線聖水站)
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">晚餐</div>
+    <div class="item-text">
+      烤黨 聖水店꿉당 성수점 OR 祖傳三代馬鈴薯排骨湯소문난 성수 감자탕
+    </div>
+  </div>
+</div>
+
+
+<div class="day-group">
+  <h2>Day 5 (3/16 一)</h2>
+
+  <div class="item">
+    <div class="item-tag">早午餐</div>
+    <div class="item-text">
+      EGG DROP에그드랍 홍대입구점 / ISAAC이삭토스트 홍대점
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">上午</div>
+    <div class="item-text">
+      最後弘大補貨 (OLIVE YOUNG 10:00開)
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="item-tag">11:00</div>
+    <div class="item-text">
+      八棍來接我們去仁川機場
+    </div>
+  </div>
+</div>
