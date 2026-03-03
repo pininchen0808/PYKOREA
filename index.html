@@ -93,7 +93,31 @@
         .card-img {
             width: 100%;
             display: block;
+            max-height: 250px;
+            object-fit: cover;
             border-bottom: 1px solid #eee;
+        }
+
+        /* 圖片防錯樣式 - 改寫預覽提示文字 */
+        img:not([src]), img[src=""] {
+            min-height: 180px;
+            background: #eee;
+            position: relative;
+            display: flex;
+        }
+        img:not([src]):after, img[src=""]:after {
+            content: "請於此處插入：" attr(alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            color: #999;
+            font-size: 14px;
+            background: #f0f0f5;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
         }
 
         .card-body { padding: 20px; }
@@ -121,7 +145,7 @@
 
         .address-box {
             background: #F2F2F7;
-            padding: 15px;
+            padding: 12px;
             border-radius: 12px;
             font-size: 13px;
             margin-top: 10px;
@@ -200,7 +224,7 @@
 
     <div class="app-header">
         <h1>SEOUL TRIP 2025</h1>
-        <p>3/12 (목) — 3/16 (월) 4박 5일</p>
+        <p>3/12 (목) — 3/16 (월) 4박 5日</p>
     </div>
 
     <div class="nav-container" id="navBar">
@@ -217,6 +241,7 @@
         <!-- 資訊頁 (Day 0) -->
         <div id="section0" class="content-section active">
             <div class="card">
+                <img src="https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=1000&auto=format&fit=crop" class="card-img" alt="首爾城市景觀圖">
                 <div class="card-body">
                     <div class="card-title">基本資訊</div>
                     <div class="footer-info">
@@ -236,7 +261,8 @@
                     <div class="card-title">AREX & Check-in</div>
                     
                     <div class="card-desc"><strong>🏠 Airbnb 入住資訊</strong></div>
-                    <img src="住宿地圖.jpg" alt="住宿位置圖" class="card-img" style="margin-top: 10px; border-radius: 12px;">
+                    <!-- 替換這裡：src 放您的地圖截圖檔名或網址 -->
+                    <img src="" class="card-img" alt="Airbnb 住宿位置路線圖" style="margin-top: 10px; border-radius: 12px;">
                     
                     <div class="address-box">
                         地址：대한민국 서울시 마포구 와우산로 37길 38，301號<br>
@@ -247,7 +273,8 @@
                         🕚 退房：3月16日 週一中午12:00
                     </div>
 
-                    <img src="airbnb內景.jpg" alt="房間內景" class="card-img" style="margin-top: 15px; border-radius: 12px;">
+                    <!-- 替換這裡：src 放您的房間內景檔名或網址 -->
+                    <img src="" class="card-img" alt="Airbnb 房間內部實景相片" style="margin-top: 15px; border-radius: 12px;">
 
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/서울시%20마포구%20와우산로%2037길%2038" class="map-btn naver" target="_blank">Naver Map 路線導引</a>
@@ -258,7 +285,8 @@
                 <div class="card-body">
                     <div class="tag-row"><span class="time-tag">晚上</span> <span class="subway-badge" style="background:var(--l2)">2호선</span></div>
                     <div class="card-title">弘大逛街</div>
-                    <img src="弘大逛街地圖.jpg" alt="弘大美食景點地圖" class="card-img" style="margin-top: 10px; border-radius: 12px;">
+                    <!-- 替換這裡：src 放您的弘大地圖檔名或網址 -->
+                    <img src="" class="card-img" alt="弘大商圈美食逛街地圖" style="margin-top: 10px; border-radius: 12px;">
                 </div>
             </div>
             <div class="card">
@@ -266,7 +294,8 @@
                     <div class="tag-row"><span class="time-tag">宵夜</span></div>
                     <div class="card-title">Puradak Chicken 弘大店</div>
                     <div class="card-desc">푸拉닭 홍대점</div>
-                    <img src="Puradak Chicken 弘大店.jpg" alt="炸雞店外觀" class="card-img" style="margin-top: 10px; border-radius: 12px;">
+                    <!-- 替換這裡：src 放您的炸雞店圖檔名或網址 -->
+                    <img src="" class="card-img" alt="Puradak Chicken 弘大店炸雞外觀圖" style="margin-top: 10px; border-radius: 12px;">
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/푸라닭%20홍대점" class="map-btn naver" target="_blank">Naver 導航</a>
                     </div>
@@ -281,7 +310,8 @@
                     <div class="tag-row"><span class="time-tag">中午</span> <span class="subway-badge" style="background:var(--l1)">1호선</span></div>
                     <div class="card-title">廣藏市場</div>
                     <div class="card-desc">品嚐各種韓國在地小吃、買棉被。</div>
-                    <img src="image_9c5c5d.jpg" alt="廣藏市場美食街" class="card-img" style="margin-top: 10px; border-radius: 12px;">
+                    <!-- 替換這裡：src 放您的廣藏市場圖檔名或網址 -->
+                    <img src="" class="card-img" alt="廣藏市場傳統小吃街實景圖" style="margin-top: 10px; border-radius: 12px;">
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/광장시장" class="map-btn naver" target="_blank">Naver</a>
                     </div>
@@ -396,7 +426,7 @@
                     <div class="tag-row"><span class="time-tag">10:00</span> <span class="subway-badge" style="background:var(--l2)">2호선</span></div>
                     <div class="card-title">醫美 Dr.Evers 弘大店</div>
                     <div class="map-group">
-                        <a href="https://map.naver.com/v5/search/닥터에버스%20홍대점" class="map-btn naver" target="_blank">Naver</a>
+                        <a href="https://map.naver.com/v5/search/닥터에버스%20홍大점" class="map-btn naver" target="_blank">Naver</a>
                     </div>
                 </div>
             </div>
@@ -405,6 +435,8 @@
                     <div class="tag-row"><span class="time-tag">下午</span> <span class="subway-badge" style="background:var(--l2)">2호선</span></div>
                     <div class="card-title">聖水洞</div>
                     <span class="member-leave-note">⚠️ 下午：品印中離</span>
+                    <!-- 替換這裡：src 放您的聖水洞照片連結 -->
+                    <img src="" class="card-img" alt="聖水洞文青工業風街景圖" style="margin-top: 10px; border-radius: 12px;">
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/성수역" class="map-btn naver" target="_blank">Naver</a>
                     </div>
