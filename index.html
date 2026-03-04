@@ -105,7 +105,7 @@
 
         .card-body { padding: 20px; }
 
-        .tag-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .tag-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
         .time-tag {
             font-size: 11px;
             font-weight: 800;
@@ -209,6 +209,16 @@
         }
         .address-box strong { color: var(--primary); }
 
+        .info-alert {
+            background: #F0F2FF;
+            border-left: 4px solid var(--primary);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+        .info-alert ul { margin: 5px 0 0; padding-left: 20px; }
+
         .member-leave-note {
             color: var(--accent);
             font-size: 14px;
@@ -288,6 +298,7 @@
     <div class="main-content">
         <!-- 資訊頁 (Day 0) -->
         <div id="section0" class="content-section active">
+            <!-- 航班資訊卡片 -->
             <div class="card">
                 <div class="card-body">
                     <div class="card-title">去回航班資訊</div>
@@ -330,13 +341,54 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 新增：入境通關與換錢資訊卡片 -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title">入境通關與財務資訊</div>
+                    
+                    <!-- SES 快速通關 -->
+                    <div class="address-box" style="background:#fffef0; border-color:#ffe58f;">
+                        <strong style="color:#d48806;">🛂 SES 自動通關註冊 (Smart Entry Service)</strong>
+                        <ul style="margin:8px 0; padding-left:20px; font-size:13px; line-height:1.6;">
+                            <li><strong>對象：</strong>持晶片護照之 17 歲以上旅客。</li>
+                            <li><strong>流程：</strong>填寫入國申告書 → 入境韓國 (走人工櫃檯) → 前往機場註冊中心。</li>
+                            <li><strong>註冊地點：</strong>仁川機場 T1 (3樓門口G、H區之間)、T2 (2樓出入國服務中心)。</li>
+                            <li><strong>效期：</strong>註冊一次後，護照有效期內皆可使用自動門快速出入境。</li>
+                        </ul>
+                    </div>
+
+                    <!-- WOWPASS -->
+                    <div class="address-box" style="margin-top:15px; background:#f0f5ff; border-color:#adc6ff;">
+                        <strong style="color:var(--primary);">💳 WOWPASS 仁川機場機台</strong>
+                        <ul style="margin:8px 0; padding-left:20px; font-size:13px; line-height:1.6;">
+                            <li><strong>位置：</strong>仁川機場 T2 <strong>CU 便利店 3 號店</strong>前方。</li>
+                            <li><strong>服務：</strong>發行新卡、補發卡、儲值餘額。</li>
+                            <li><strong>限制：</strong>該機台<span style="color:var(--accent);">不提供</span>兌換現金及提領服務，且須以<strong>韓幣現金</strong>交易。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 換錢所推薦 -->
+                    <div class="address-box" style="margin-top:15px;">
+                        <strong style="color:var(--success);">💰 弘大換錢所推薦 (匯率較明洞略差)</strong>
+                        <div style="margin-top:8px; font-size:13px;">
+                            <strong>1. Moneybox (網友首選 ⭐)</strong>
+                            <p style="margin:2px 0 8px 0;">📍 弘大站 7 號出口 | 10:00 ~ 21:00<br>
+                            <small>💡 優點：即時匯率公開在官網，透明度極高，划算才換！</small></p>
+                            
+                            <strong>2. Travel depot</strong>
+                            <p style="margin:2px 0 0 0;">📍 弘大站 3 號出口 | 10:00 ~ 21:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- 3/12 Day 1 -->
         <div id="section1" class="content-section">
             <div class="card">
                 <div class="card-body">
-                    <div class="tag-row"><span class="time-tag">下午</span> <span class="subway-badge" style="background:var(--arex)">공항철도</span></div>
+                    <div class="tag-row"><span class="time-tag">下午</span> <span class="subway-badge" style="background:var(--arex)">공항철도 AREX</span></div>
                     <div class="card-title">AREX & Check-in</div>
                     
                     <div class="card-desc"><strong>🏠入住資訊</strong></div>
@@ -358,18 +410,52 @@
                     </div>
                 </div>
             </div>
+            
             <div class="card">
                 <div class="card-body">
-                    <div class="tag-row"><span class="time-tag">晚上</span> <span class="subway-badge" style="background:var(--l2)">2호선</span></div>
+                    <div class="tag-row"><span class="time-tag">晚上</span> <span class="subway-badge" style="background:var(--l2)">2호선 홍대입구역 弘大站</span></div>
                     <div class="card-title">弘大逛街</div>
                     <img src="弘大逛街地圖.jpg" alt="弘大逛街地圖" class="card-img" style="margin-top: 10px; border-radius: 12px;">
+                    <div class="info-alert" style="margin-top:15px; background: #fef9f9; border-left: 4px solid #ff9999;">
+                        <p style="margin:0; font-size:13px; line-height:1.6;">
+                            📍 <strong>核心商圈介紹：</strong><br>
+                            「停車場街」是弘大商圈最核心逛街地帶，長度約 750 公尺，可通往地鐵上水站。<br>
+                            「想漫步的小徑」與停車場街合稱 <strong>「Red Road」</strong>，充滿街頭表演與節慶活動，聚集許多知名烤肉與炸雞店，又被稱作「炸雞烤肉街」。
+                        </p>
+                    </div>
                 </div>
             </div>
+
+            <!-- 第一天晚餐：小豬存錢筒 -->
+            <div class="recommendation">
+                <div class="rec-header">🥩 第一天必吃晚餐</div>
+                <div class="rec-item">
+                    <div class="rec-name">小豬存錢筒 수정옥돌생소금구이</div>
+                    <div class="card-desc" style="font-size:12px; margin-top:5px;">📍 서울시 마포구 동교동 동교로 23길 21</div>
+                    
+                    <div class="address-box" style="background:#fff; margin-top:10px; border: 1px solid #eee;">
+                        <strong style="color:var(--accent);">📖 中韓對照菜單</strong>
+                        <ul style="margin:5px 0; padding-left:20px; font-size:13px; line-height:1.6;">
+                            <li>豬頸肉 소금구이</li>
+                            <li>三層肉 삼겹살</li>
+                            <li>松阪肉 항정살</li>
+                            <li>橫隔膜 갈매기살</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="map-group">
+                        <a href="https://map.naver.com/v5/search/수정옥돌생소금구이" class="map-btn naver" target="_blank">Naver 導航</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-body">
                     <div class="tag-row"><span class="time-tag">宵夜</span></div>
-                    <div class="card-title">Puradak Chicken弘大店 푸拉닭 홍대점</div>
+                    <div class="card-title">Puradak Chicken 弘大店</div>
+                    <div class="card-desc">푸라닭 홍대점</div>
                     <img src="Puradak Chicken 弘大店.jpg" alt="炸雞店" class="card-img" style="margin-top: 10px; border-radius: 12px;">
+                    <div class="card-desc" style="font-size:12px; color:var(--text-light); margin-top:6px;">可內用，據說是炸雞界的Prada</div>
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/푸라닭%20홍대점" class="map-btn naver" target="_blank">Naver 導航</a>
                     </div>
@@ -381,10 +467,10 @@
         <div id="section2" class="content-section">
             <div class="card">
                 <div class="card-body">
-                    <div class="tag-row"><span class="time-tag">中午</span> <span class="subway-badge" style="background:var(--l1)">1호선</span></div>
+                    <div class="tag-row"><span class="time-tag">中午</span> <span class="subway-badge" style="background:var(--l1)">1호선 종로5가역 鍾路5街站</span></div>
                     <div class="card-title">廣藏市場광장시장</div>
                     <div class="card-desc">品嘗各種韓國在地小吃、買棉被。</div>
-                    <img src="廣藏市場圖片.jpg" alt="廣藏市場" class="card-img" style="margin-top: 10px; border-radius: 12px;">
+                    <img src="廣藏市場圖片.png" alt="廣藏市場" class="card-img" style="margin-top: 10px; border-radius: 12px;">
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/광장시장" class="map-btn naver" target="_blank">Naver</a>
                     </div>
@@ -392,10 +478,10 @@
             </div>
 
             <div class="recommendation">
-                <div class="rec-header">🥐網友說要吃</div>
+                <div class="rec-header">🥐 市場周邊必吃</div>
                 <div class="rec-item">
                     <div class="rec-name">Garlic Boy갈릭보이</div>
-                    <div class="card-desc">서울 종로구 창경궁로 88 1층 46호</div>
+                    <div class="card-desc">서울 종路구 창경궁로 88 1층 46호</div>
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/갈릭보이" class="map-btn naver" target="_blank">Naver Map</a>
                     </div>
@@ -411,7 +497,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <div class="tag-row"><span class="time-tag">14:00</span> <span class="subway-badge" style="background:var(--l3)">3호선</span></div>
+                    <div class="tag-row"><span class="time-tag">14:00</span> <span class="subway-badge" style="background:var(--l3)">3호선 경복궁역 景福宮站</span></div>
                     <div class="card-title">景福宮 & STAR 韓服</div>
                     <img src="景福宮.jpg" alt="景福宮" class="card-img" style="margin-top: 10px; border-radius: 12px; margin-bottom: 15px;">
                     
@@ -426,7 +512,7 @@
 
                     <div class="card-desc" style="margin-top:15px; font-size:13px;">
                         📍 <strong>門市位置</strong><br>
-                        서울시 종로구通仁洞 159, 3층<br>
+                        서울시 종로구 通仁洞 159, 3층<br>
                         (景福宮站2號出口，出站直走約 3 分鐘)
                     </div>
 
@@ -440,12 +526,12 @@
                 <div class="card-body">
                     <div class="tag-row">
                         <span class="time-tag">晚上</span> 
-                        <span class="subway-badge" style="background:var(--l6)">6호선 한강진역</span>
+                        <span class="subway-badge" style="background:var(--l6)">6호선 한강진역 漢江鎮站</span>
                     </div>
                     <div class="card-title">漢南洞 & 黎泰院</div>
                     <img src="漢南洞.jpg" alt="漢南洞" class="card-img" style="margin-top: 10px; border-radius: 12px; margin-bottom: 10px;">
                     <div class="map-group">
-                        <a href="https://map.naver.com/v5/search/한강진역" class="map-btn naver" target="_blank">Naver Map (漢江鎮)</a>
+                        <a href="https://map.naver.com/v5/search/한강진역" class="map-btn naver" target="_blank">Naver Map</a>
                     </div>
                 </div>
             </div>
@@ -453,9 +539,9 @@
             <div class="recommendation">
                 <div class="rec-header">🍸酒吧與宵夜</div>
                 <div class="rec-item">
-                    <div class="rec-name">Fountain파운틴</div>
+                    <div class="rec-name">Fountain파운廷</div>
                     <div class="map-group">
-                        <a href="https://map.naver.com/v5/search/이태원%20파운廷" class="map-btn naver" target="_blank">Naver</a>
+                        <a href="https://map.naver.com/v5/search/이태원%20파운틴" class="map-btn naver" target="_blank">Naver</a>
                     </div>
                 </div>
                 <div class="rec-item">
@@ -471,8 +557,22 @@
         <div id="section3" class="content-section">
             <div class="card">
                 <div class="card-body">
-                    <div class="tag-row"><span class="time-tag">午餐</span> <span class="subway-badge" style="background:var(--l2)">2호선</span></div>
-                    <div class="card-title">阿峴洞醬油蟹아현동간장게장</div>
+                    <div class="tag-row"><span class="time-tag">午餐</span> <span class="subway-badge" style="background:var(--l2)">2호선 아현역 阿峴站</span></div>
+                    <div class="card-title">3/14 Day 3 阿峴洞醬油蟹아현동간장게장</div>
+                    
+                    <div class="address-box" style="background:#fffcf5; border-color:#f3e2b3; margin-bottom:15px;">
+                        <strong style="color:#8b4513;">🦀 菜單對照與推薦</strong>
+                        <ul style="margin:8px 0; padding-left:20px; font-size:13px; line-height:1.6;">
+                            <li>花蟹醬油螃蟹 꽃게간장게장</li>
+                            <li>花蟹辣味醬蟹 꽃게양념게장</li>
+                            <li>石蟹醬油螃蟹 돌게간장게장</li>
+                            <li>毛蟹醬油螃蟹 참게간장게장</li>
+                        </ul>
+                        <div style="font-size:12px; color:#5c5c5c; border-top:1px dashed #d9d9d9; padding-top:8px; margin-top:8px;">
+                            💡 <strong>備註：</strong>花蟹價格較高，適合追求肉質與鮮味；石蟹 (紮實、嚼勁、海味濃) 與毛蟹 (細膩、膏黃香濃) 則各有獨特的香氣與口感。
+                        </div>
+                    </div>
+
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/아현동간장게장" class="map-btn naver" target="_blank">Naver</a>
                     </div>
@@ -480,18 +580,27 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <div class="tag-row"><span class="time-tag">下午 & 晚上</span> <span class="subway-badge" style="background:var(--l4)">4호선</span></div>
+                    <div class="tag-row"><span class="time-tag">下午</span> <span class="subway-badge" style="background:var(--l4)">4호선 명동역 明洞站</span></div>
                     <div class="card-title">明洞명동</div>
-
-                    <div class="card-desc" style="color:var(--text-light); font-size:12px; margin-top:5px;">逛完先回Airbnb放戰利品</div>
                     <span class="member-leave-note">⚠️韻慈中離</span>
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/명동역" class="map-btn naver" target="_blank">Naver</a>
                     </div>
                 </div>
             </div>
+
+            <!-- 樂天超市行程與回Airbnb導航 -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="tag-row"><span class="time-tag">採買</span> <span class="subway-badge" style="background:var(--l1)">1호/4호선 서울역 首爾站</span></div>
+                    <div class="card-title">樂天超市 Lotte Mart</div>
+                    <div class="card-desc" style="color:var(--text-light); font-size:12px; margin-top:5px;">逛完先回Airbnb放戰利品</div>
+                    <div class="map-group">
+                        <a href="https://map.naver.com/v5/search/서울시%20마포구%20와우산로%2037길%2038" class="map-btn naver" target="_blank">回Airbnb</a>
+                    </div>
+                </div>
+            </div>
             
-            <!-- 更新晚餐：一片鰻魚 美食推薦格式 -->
             <div class="recommendation">
                 <div class="rec-header">🥩晚餐選項</div>
                 <div class="rec-item">
@@ -508,7 +617,7 @@
         <div id="section4" class="content-section">
             <div class="card">
                 <div class="card-body">
-                    <div class="tag-row"><span class="time-tag">10:00</span> <span class="subway-badge" style="background:var(--l2)">2호선</span></div>
+                    <div class="tag-row"><span class="time-tag">10:00</span> <span class="subway-badge" style="background:var(--l2)">2호선 홍대입구역 弘大站</span></div>
                     <div class="card-title">醫美：Dr.Evers 弘大店</div>
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/닥터에버스%20홍대점" class="map-btn naver" target="_blank">Naver</a>
@@ -517,8 +626,8 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <div class="tag-row"><span class="time-tag">下午 & 晚上</span> <span class="subway-badge" style="background:var(--l2)">2호선</span></div>
-                    <div class="card-title">聖水洞성수동</div>
+                    <div class="tag-row"><span class="time-tag">下午 & 晚上</span> <span class="subway-badge" style="background:var(--l2)">2호선 성수역 聖水站</span></div>
+                    <div class="card-title">聖水洞성수動</div>
                     <span class="member-leave-note">⚠️品印中離</span>
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/성수역" class="map-btn naver" target="_blank">Naver</a>
@@ -526,22 +635,21 @@
                 </div>
             </div>
             <div class="recommendation">
-                <div class="rec-header">🥩網友說要吃</div>
+                <div class="rec-header">🥩 聖水美食推薦</div>
                 <div class="rec-item">
                     <div class="rec-name">山清炭火花園二號店산청숯불가든</div>
                     <div class="tag-row" style="margin-top:5px;">
-                        <span class="subway-badge" style="background:var(--l2)">2호선</span>
-                        <span class="subway-badge" style="background:var(--l3)">3호선</span>
+                        <span class="subway-badge" style="background:var(--l2)">2호선 을지로3가역 乙支路三街站</span>
+                        <span class="subway-badge" style="background:var(--l3)">3호선 을지로3가역 乙支路三街站</span>
                     </div>
                     <div class="card-desc" style="font-size:12px; margin-bottom:5px;">乙支路三街站 10 號出口</div>
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/산청숯불가든%20을지로" class="map-btn naver" target="_blank">Naver</a>
                     </div>
                 </div>
-                <!-- 更新烤貝資訊 -->
                 <div class="rec-item">
                     <div class="rec-name">Jogaedo 石頭烤貝 🦪조개도</div>
-                    <div class="rec-note">💡 2號線성수站 | 現場先平板登記候位</div>
+                    <div class="rec-note">💡 2號線성수역 聖水站 | 現場先平板登記候位</div>
                     <div class="map-group">
                         <a href="https://map.naver.com/v5/search/조개도%20성수" class="map-btn naver" target="_blank">Naver</a>
                     </div>
@@ -559,7 +667,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <div class="tag-row"><span class="time-tag">OY 10:00 OPEN</span></div>
+                    <div class="tag-row"><span class="time-tag">OY 10:00 OPEN</span> <span class="subway-badge" style="background:var(--l2)">2호선 홍대입구역 弘大站</span></div>
                     <div class="card-title">最後弘大最後ㄉ逛街時光</div>
                 </div>
             </div>
@@ -578,7 +686,7 @@
                     <div class="card-title">美食備案整理</div>
                     
                     <!-- 麵包與咖啡備案 -->
-                    <div class="card-desc" style="margin-top:15px; color:var(--primary); font-weight:bold;">🥐好吃麵包</div>
+                    <div class="card-desc" style="margin-top:15px; color:var(--primary); font-weight:bold;">🥐 安國/明洞 麵包與美食</div>
                     <div class="address-box">
                         <div class="rec-item">
                             <div class="rec-name">London Bagel Museum🥯</div>
@@ -612,7 +720,7 @@
                             鐘路總店：종로계림닭도리탕<br>
                             서울 종로구 돈화문로4길 39 (每週日公休)<br><br>
                             忠武路店：종로계림닭도리탕 충무로직營店<br>
-                            서울 중구 충무로2길 43 (每週六公休)<br><br>
+                            서울 중구 충務路2길 43 (每週六公休)<br><br>
                             麻浦店：종로계림닭도리탕元祖 마포점<br>
                             서울 마포구 삼개로 8 2층 (每週六公休)
                         </div>
@@ -657,7 +765,7 @@
                     <!-- 移入無垢屋 -->
                     <div class="rec-item">
                         <div class="rec-name">無垢屋蔘雞湯무구옥</div>
-                        <div class="rec-note">💡 3號線安國站</div>
+                        <div class="rec-note">💡 3호선 안국역 安國站</div>
                         <div class="map-group">
                             <a href="https://map.naver.com/v5/search/무구옥" class="map-btn naver" target="_blank">Naver</a>
                         </div>
